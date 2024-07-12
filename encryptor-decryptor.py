@@ -1,14 +1,12 @@
-##importing mmodules
-
 from tkinter import *
 import base64
 
-#initialize window
+#initialize
 root = Tk()
 root.geometry('500x300')
 root.resizable(0,0)
 
-#title of the window
+#title 
 root.title(" Message Encrypter and Decrypter")
 
 
@@ -27,7 +25,7 @@ mode = StringVar()
 Result = StringVar()
 
 
-#function to encode
+#encode
 def Encode(key,message):
     enc=[]
     for i in range(len(message)):
@@ -36,7 +34,7 @@ def Encode(key,message):
         
     return base64.urlsafe_b64encode("".join(enc).encode()).decode()
 
-#function to decode
+#decode
 def Decode(key,message):
     dec=[]
     message = base64.urlsafe_b64decode(message).decode()
@@ -46,7 +44,7 @@ def Decode(key,message):
         
     return "".join(dec)
 
-#function to set mode
+#mode
 def Mode():
     if(mode.get() == 'e'):
         Result.set(Encode(private_key.get(), Text.get()))
@@ -57,13 +55,13 @@ def Mode():
 
 
 
-#Function to exit window
+#exit window
         
 def Exit():
     root.destroy()
 
 
-#Function to reset
+#reset
 def Reset():
     Text.set("")
     private_key.set("")
